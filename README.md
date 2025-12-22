@@ -6,12 +6,11 @@
 
 This contains everything you need to run your app locally.
 
-View your app in AI Studio: https://ai.studio/apps/bundled/native_audio_function_call_sandbox
+View your app in AI Studio: <https://ai.studio/apps/bundled/native_audio_function_call_sandbox>
 
 ## Run Locally
 
 **Prerequisites:**  Node.js
-
 
 1. Install dependencies:
    `npm install`
