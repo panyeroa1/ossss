@@ -75,3 +75,91 @@ Known limitations or follow-up tasks:
 - None
 
 ------------------------------------------------------------
+
+Task ID: T-0002
+Title: Implement landing page and Supabase authentication
+Status: DONE
+Owner: Miles
+Related repo or service: osss
+Branch: main
+Created: 2025-12-23 07:05
+Last updated: 2025-12-23 07:22
+
+START LOG
+
+Timestamp: 2025-12-23 07:05
+
+Current behavior or state:
+
+- App starts directly into the streaming console.
+- No landing page or authentication.
+- Supabase credentials available in `.env.local` but not integrated.
+
+Plan and scope for this task:
+
+- Initialize Supabase client.
+- Create a stunning Landing Page with Orbit OS branding.
+- Create an Auth Page for sign-in/sign-up.
+- Implement routing and protected routes.
+- Extract main app logic to a separate component.
+
+Files or modules expected to change:
+
+- `App.tsx`
+- `index.css`
+- `lib/supabase.ts` (NEW)
+- `components/LandingPage.tsx` (NEW)
+- `components/AuthPage.tsx` (NEW)
+- `components/MainApp.tsx` (NEW)
+
+Risks or things to watch out for:
+
+- Environment variable naming (Vite requires `VITE_` prefix).
+- Relative import paths when moving code to subfolders.
+
+WORK CHECKLIST
+
+- [x] Supabase dependencies installed
+- [x] Supabase client initialized
+- [x] Landing Page implemented with Orbit OS branding
+- [x] Auth Page implemented with glassmorphism
+- [x] Routing implemented in `App.tsx`
+- [x] Protected routes and session management verified
+- [x] UI tested and responsive
+
+END LOG
+
+Timestamp: 2025-12-23 07:22
+
+Summary of what actually changed:
+
+- Implemented a full authentication flow using Supabase.
+- Added a high-end landing page following Orbit OS design language.
+- Configured routing with `react-router-dom`.
+- Fixed environment variable access for Vite.
+
+Files actually modified:
+
+- `App.tsx`
+- `index.css`
+- `lib/supabase.ts`
+- `components/LandingPage.tsx`
+- `components/AuthPage.tsx`
+- `components/MainApp.tsx`
+- `tsconfig.json`
+
+How it was tested:
+
+- Local build `npm run build` completed successfully.
+- Manual verification of routing logic.
+
+Test result:
+
+- PASS
+
+Known limitations or follow-up tasks:
+
+- Email confirmation is required for sign-up (standard Supabase behavior).
+- User profile data could be persisted in the `users` table from the schema.
+
+------------------------------------------------------------
