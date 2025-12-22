@@ -7,7 +7,7 @@ Every change you make must be traceable through clear, written logs in this file
 
 Task ID: T-0001
 Title: Fix scrollbar compatibility and push to GitHub
-Status: IN-PROGRESS
+Status: DONE
 Owner: Miles
 Related repo or service: osss
 Branch: master
