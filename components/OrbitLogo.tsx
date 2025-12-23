@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import logoUrl from '../images/logo.png';
 
 const OrbitLogo: React.FC<{ size?: 'small' | 'large' }> = ({ size = 'large' }) => {
   const isLarge = size === 'large';
@@ -34,7 +35,7 @@ const OrbitLogo: React.FC<{ size?: 'small' | 'large' }> = ({ size = 'large' }) =
         className="orbit-core"
       >
         <img 
-          src="https://eburon.ai/orbit/orbit.png" 
+          src={logoUrl} 
           alt="Orbit Logo" 
           className="orbit-image"
         />

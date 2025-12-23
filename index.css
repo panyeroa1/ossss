@@ -48,11 +48,105 @@ body {
   letter-spacing: -0.015em;
 }
 
+html, body, #root {
+  height: 100%;
+}
+
 .App {
   height: 100vh;
   width: 100vw;
   background: var(--bg-color);
   transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading State */
+.loading-screen {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+}
+
+.animate-pulse {
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Streaming Console Layout */
+.streaming-console {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.streaming-console main {
+  height: 100%;
+}
+
+.main-app-area {
+  height: 100%;
+  width: 100%;
+}
+
+.fullscreen-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.ambient-background {
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  opacity: 0.18;
+  filter: blur(12px) saturate(120%);
+  transform: scale(1.1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.content-frame {
+  position: relative;
+  z-index: 2;
+  width: min(1200px, 92vw);
+  height: min(680px, 70vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iframe-wrapper,
+.fullscreen-video {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--border-glass);
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5);
+}
+
+.iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.fullscreen-video {
+  object-fit: cover;
 }
 
 /* Audio Visualizer - Floating Top Center */
@@ -63,6 +157,11 @@ body {
   transform: translateX(-50%);
   z-index: 4000;
   pointer-events: none;
+}
+
+.audio-visualizer-container canvas {
+  width: min(600px, 90vw);
+  height: auto;
 }
 
 /* Header & Settings Icon Placement */
@@ -808,7 +907,19 @@ body {
 }
 
 .auth-toggle-btn {
-  background: transparent;/* Orbit Logo Component */
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.auth-toggle-btn:hover {
+  color: #fff;
+}
+
+/* Orbit Logo Component */
 .orbit-logo-container {
   position: relative;
   display: flex;
@@ -890,13 +1001,166 @@ body {
   box-shadow: none !important;
   display: contents !important;
 }
-  border: none;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: color 0.2s;
+
+/* Responsive Tweaks */
+@media (max-width: 900px) {
+  body {
+    overflow: hidden;
+  }
+
+  .App {
+    height: 100svh;
+  }
+
+  .fullscreen-container {
+    padding: 16px;
+  }
+
+  .content-frame {
+    width: 100%;
+    height: min(60vh, 520px);
+  }
+
+  .minimal-header {
+    padding: 18px;
+  }
+
+  .settings-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .audio-visualizer-container {
+    top: 8px;
+  }
+
+  .sidebar {
+    left: 12px;
+    right: 12px;
+    top: auto;
+    bottom: 12px;
+    width: auto;
+    height: min(75vh, 640px);
+    border-radius: 28px;
+    transform: translateY(calc(100% + 40px));
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.6);
+  }
+
+  .sidebar.open {
+    transform: translateY(0);
+  }
+
+  .sidebar-top-bar {
+    padding: 24px 22px 8px;
+  }
+
+  .sidebar-main {
+    padding: 0 22px;
+  }
+
+  .sidebar-bottom-nav {
+    padding: 10px 10px 28px;
+  }
+
+  .nav-scroll-controls {
+    display: none;
+  }
+
+  .nav-tab-list {
+    padding: 0;
+    gap: 6px;
+  }
+
+  .nav-tab-btn {
+    min-width: 54px;
+  }
+
+  .agent-grid-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .source-type-selector {
+    flex-wrap: wrap;
+  }
+
+  .source-type-btn {
+    flex: 1 1 calc(50% - 8px);
+    height: 64px;
+  }
+
+  .chat-composer {
+    gap: 8px;
+    padding: 6px 10px;
+  }
 }
 
-.auth-toggle-btn:hover {
-  color: #fff;
+@media (max-width: 640px) {
+  .landing-container,
+  .auth-container {
+    min-height: 100svh;
+    padding: 24px 18px 32px;
+    overflow-y: auto;
+  }
+
+  .landing-content,
+  .auth-card {
+    width: 100%;
+  }
+
+  .orbit-logo-container.large {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .btn-get-started {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .feature-grid {
+    gap: 10px;
+  }
+
+  .auth-card {
+    padding: 28px;
+  }
+
+  .auth-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .auth-header p {
+    font-size: 0.9rem;
+  }
+
+  .form-group input {
+    font-size: 0.95rem;
+  }
+
+  .sidebar {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    height: min(78vh, 620px);
+  }
+
+  .sidebar-top-bar {
+    padding: 20px 18px 6px;
+  }
+
+  .sidebar-main {
+    padding: 0 18px;
+  }
+
+  .nav-tab-label {
+    font-size: 0.45rem;
+  }
 }

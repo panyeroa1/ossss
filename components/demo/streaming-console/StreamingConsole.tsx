@@ -10,6 +10,7 @@ import {
   useSettings,
   useLogStore,
 } from '@/lib/state';
+import logoUrl from '../../../images/logo.png';
 
 export default function StreamingConsole() {
   const { client, setConfig } = useLiveAPIContext();
@@ -115,7 +116,7 @@ export default function StreamingConsole() {
     <div className="fullscreen-container">
       <img
         className="ambient-background"
-        src="https://eburon.ai/orbit/orbit.png"
+        src={logoUrl}
         alt="Ambient Background"
       />
 
