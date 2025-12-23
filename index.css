@@ -53,10 +53,43 @@ html, body, #root {
 }
 
 .App {
+  position: relative;
+  isolation: isolate;
   height: 100vh;
   width: 100vw;
-  background: var(--bg-color);
+  background-color: var(--bg-color);
+  background-image:
+    radial-gradient(900px 600px at 18% 12%, rgba(0, 122, 255, 0.12), transparent 60%),
+    radial-gradient(800px 520px at 82% 18%, rgba(0, 255, 204, 0.08), transparent 65%),
+    radial-gradient(720px 480px at 50% 88%, rgba(255, 99, 132, 0.05), transparent 70%);
+  background-attachment: fixed;
+  background-size: cover;
   transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.App::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 18% 24%, rgba(255, 255, 255, 0.18), transparent 40%),
+    radial-gradient(1px 1px at 62% 16%, rgba(255, 255, 255, 0.14), transparent 40%),
+    radial-gradient(1px 1px at 78% 58%, rgba(255, 255, 255, 0.12), transparent 40%),
+    radial-gradient(1px 1px at 36% 72%, rgba(255, 255, 255, 0.16), transparent 40%);
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+  animation: starDrift 160s linear infinite;
+}
+
+.App > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes starDrift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-2%, -1%, 0); }
 }
 
 /* Loading State */
