@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import OrbitLogo from './OrbitLogo';
 
 const AuthPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -42,9 +43,7 @@ const AuthPage: React.FC = () => {
         className="auth-card"
       >
         <div className="auth-header">
-          <div className="brand-logo-small">
-            <span className="material-symbols-outlined">orbit</span>
-          </div>
+          <OrbitLogo size="small" />
           <h2>{isSignUp ? 'Create Account' : 'Welcome Back'}</h2>
           <p>{isSignUp ? 'Join the Orbit network' : 'Secure access to your workspace'}</p>
         </div>

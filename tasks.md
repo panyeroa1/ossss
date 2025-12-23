@@ -163,3 +163,88 @@ Known limitations or follow-up tasks:
 - User profile data could be persisted in the `users` table from the schema.
 
 ------------------------------------------------------------
+
+Task ID: T-0003
+Title: Refine UI with Animated Orbit Logo and CSS Backgrounds
+Status: DONE
+Owner: Miles
+Related repo or service: osss
+Branch: main
+Created: 2025-12-23 08:20
+Last updated: 2025-12-23 08:35
+
+START LOG
+
+Timestamp: 2025-12-23 08:20
+
+Current behavior or state:
+
+- Static background on landing/auth pages.
+- Standard material icon used for Orbit branding.
+- Persistent TypeScript errors regarding `import.meta.env`.
+- Some relative import path warnings in `MainApp.tsx`.
+
+Plan and scope for this task:
+
+- Create `vite-env.d.ts` to fix environment variable types.
+- Implement `OrbitLogo.tsx` featuring the provided `orbit.png` with CSS-based orbital animations.
+- Replace static icons with the new `OrbitLogo` component.
+- Enhance the global background with multi-layered CSS animations (rotating nebulas and floating stars).
+- Verify all imports and build status.
+
+Files or modules expected to change:
+
+- `index.css`
+- `components/OrbitLogo.tsx` (NEW)
+- `components/LandingPage.tsx`
+- `components/AuthPage.tsx`
+- `vite-env.d.ts` (NEW)
+- `tsconfig.json`
+
+Risks or things to watch out for:
+
+- Ensure high performance of CSS animations (using `transform` and `opacity`).
+- Maintain brand consistency with Eburon guidelines.
+
+WORK CHECKLIST
+
+- [x] Type definitions for Vite environment created
+- [x] Animated Orbit logo component implemented
+- [x] CSS background animations upgraded to multi-layered system
+- [x] Missing `@types/react` dependencies installed
+- [x] Build verified successfully
+
+END LOG
+
+Timestamp: 2025-12-23 08:35
+
+Summary of what actually changed:
+
+- Fixed persistent IDE/Lint errors by adding `vite-env.d.ts` and `@types/react`.
+- Created a high-fidelity animated Orbit logo using the provided image asset.
+- Replaced the placeholder branding with the animated `OrbitLogo` component on Landing and Auth pages.
+- Implemented a sophisticated, fully CSS-driven animated background for a "premium" look.
+
+Files actually modified:
+
+- `index.css`
+- `components/OrbitLogo.tsx`
+- `components/LandingPage.tsx`
+- `components/AuthPage.tsx`
+- `vite-env.d.ts`
+- `tsconfig.json`
+
+How it was tested:
+
+- `npm run build` confirmed success.
+- Visual inspection of the code for correct animation logic.
+
+Test result:
+
+- PASS
+
+Known limitations or follow-up tasks:
+
+- None
+
+------------------------------------------------------------

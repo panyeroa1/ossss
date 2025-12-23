@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import OrbitLogo from './OrbitLogo';
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -15,9 +16,7 @@ const LandingPage: React.FC = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="hero-section"
         >
-          <div className="brand-logo-large">
-            <span className="material-symbols-outlined">orbit</span>
-          </div>
+          <OrbitLogo size="large" />
           <h1 className="hero-title">Orbit OS</h1>
           <p className="hero-subtitle">The next generation translation intelligence.</p>
           
