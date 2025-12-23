@@ -37,17 +37,19 @@ function App() {
   }
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={session ? <Navigate to="/app" /> : <LandingPage />} />
-        <Route path="/auth" element={session ? <Navigate to="/app" /> : <AuthPage />} />
-        <Route 
-          path="/app" 
-          element={session ? <MainApp /> : <Navigate to="/auth" />} 
-        />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/" element={session ? <Navigate to="/app" /> : <LandingPage />} />
+          <Route path="/auth" element={session ? <Navigate to="/app" /> : <AuthPage />} />
+          <Route 
+            path="/app" 
+            element={session ? <MainApp /> : <Navigate to="/auth" />} 
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

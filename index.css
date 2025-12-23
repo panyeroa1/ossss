@@ -55,16 +55,18 @@ html, body, #root {
 .App {
   position: relative;
   isolation: isolate;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  background-color: var(--bg-color);
+  background-color: #050508;
   background-image:
-    radial-gradient(900px 600px at 18% 12%, rgba(0, 122, 255, 0.12), transparent 60%),
-    radial-gradient(800px 520px at 82% 18%, rgba(0, 255, 204, 0.08), transparent 65%),
-    radial-gradient(720px 480px at 50% 88%, rgba(255, 99, 132, 0.05), transparent 70%);
+    radial-gradient(1000px 700px at 15% 15%, rgba(0, 122, 255, 0.15), transparent 70%),
+    radial-gradient(900px 600px at 85% 20%, rgba(0, 255, 204, 0.1), transparent 70%),
+    radial-gradient(800px 500px at 50% 90%, rgba(255, 60, 100, 0.08), transparent 70%),
+    radial-gradient(1200px 800px at 30% 60%, rgba(100, 50, 255, 0.06), transparent 70%);
   background-attachment: fixed;
   background-size: cover;
-  transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
 }
 
 .App::after {
@@ -72,14 +74,15 @@ html, body, #root {
   position: fixed;
   inset: 0;
   background-image:
-    radial-gradient(1px 1px at 18% 24%, rgba(255, 255, 255, 0.18), transparent 40%),
-    radial-gradient(1px 1px at 62% 16%, rgba(255, 255, 255, 0.14), transparent 40%),
-    radial-gradient(1px 1px at 78% 58%, rgba(255, 255, 255, 0.12), transparent 40%),
-    radial-gradient(1px 1px at 36% 72%, rgba(255, 255, 255, 0.16), transparent 40%);
-  opacity: 0.25;
+    radial-gradient(1.2px 1.2px at 18% 24%, rgba(255, 255, 255, 0.25), transparent 60%),
+    radial-gradient(1.2px 1.2px at 62% 16%, rgba(255, 255, 255, 0.2), transparent 60%),
+    radial-gradient(1.2px 1.2px at 78% 58%, rgba(255, 255, 255, 0.18), transparent 60%),
+    radial-gradient(1.2px 1.2px at 36% 72%, rgba(255, 255, 255, 0.22), transparent 60%);
+  background-size: 400px 400px;
+  opacity: 0.3;
   pointer-events: none;
   z-index: 0;
-  animation: starDrift 160s linear infinite;
+  animation: starDrift 200s linear infinite;
 }
 
 .App > * {
@@ -674,10 +677,7 @@ html, body, #root {
 .landing-container, .auth-container {
   height: 100vh;
   width: 100vw;
-  background: var(--bg-color);
-  background-image: 
-    radial-gradient(circle at 50% 50%, rgba(0, 122, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(255, 59, 48, 0.05) 0%, transparent 40%);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -685,59 +685,9 @@ html, body, #root {
   overflow: hidden;
 }
 
-/* Dynamic CSS Background Animation - Multi-layered */
-.landing-container::before, .auth-container::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: 
-    radial-gradient(circle at 30% 30%, rgba(0, 122, 255, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 70% 70%, rgba(255, 59, 48, 0.03) 0%, transparent 40%);
-  animation: bgRotate 120s linear infinite;
-  z-index: 1;
-}
-
-.landing-container::after, .auth-container::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(1px 1px at 10% 10%, #fff, transparent),
-    radial-gradient(2px 2px at 90% 90%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 50% 50%, #fff, transparent);
-  background-size: 300px 300px;
-  animation: starsFloat 100s linear infinite;
-  opacity: 0.2;
-  z-index: 2;
-}
-
-@keyframes starsFloat {
-  from { background-position: 0 0; }
-  to { background-position: 300px 600px; }
-}
-
-@keyframes bgRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
+/* stars-overlay is superseded by .App::after */
 .stars-overlay {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 50px 160px, #fff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 80px 120px, #fff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 110px 10px, #fff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 150px 150px, #fff, rgba(0,0,0,0));
-  background-repeat: repeat;
-  background-size: 200px 200px;
-  opacity: 0.3;
-  pointer-events: none;
+  display: none;
 }
 
 .landing-content, .auth-card {

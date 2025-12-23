@@ -248,3 +248,83 @@ Known limitations or follow-up tasks:
 - None
 
 ------------------------------------------------------------
+
+Task ID: T-0004
+Title: Unified Cosmic Background and UI Refinement
+Status: DONE
+Owner: Miles
+Related repo or service: osss
+Branch: main
+Created: 2025-12-23 08:50
+Last updated: 2025-12-23 09:05
+
+START LOG
+
+Timestamp: 2025-12-23 08:50
+
+Current behavior or state:
+
+- Inconsistent backgrounds between Main App, Landing, and Auth pages.
+- Fast animations on the Orbit logo.
+- Redundant background definitions in several containers.
+
+Plan and scope for this task:
+
+- Wrap the entire application routing in a global `.App` container for background consistency.
+- Refine the cosmic background with slower, multi-layered nebula and star effects.
+- Slow down all UI animations (logo, star drift, transitions) for a cinematic feel.
+- Clean up `index.css` by removing redundant container backgrounds.
+- Ensure the app remains fully responsive.
+
+Files or modules expected to change:
+
+- `App.tsx`
+- `MainApp.tsx`
+- `index.css`
+- `components/OrbitLogo.tsx`
+
+Risks or things to watch out for:
+
+- Ensure no layout shifts when transitioning between routes.
+- Verify transparency on all child containers.
+
+WORK CHECKLIST
+
+- [x] Global wrapper added to `App.tsx`
+- [x] Redundant `.App` wrapper removed from `MainApp.tsx`
+- [x] Cosmic background consolidated and refined in `index.css`
+- [x] Logo animations slowed down significantly
+- [x] Verified full responsiveness on mobile and tablet
+
+END LOG
+
+Timestamp: 2025-12-23 09:05
+
+Summary of what actually changed:
+
+- Successfully unified the "Orbit OS" aesthetic across the entire app.
+- Moved the high-end cosmic background to a global scope.
+- Adjusted all animation durations for a smoother, premium experience.
+- Cleaned up the CSS codebase by removing legacy background overlaps.
+
+Files actually modified:
+
+- `App.tsx`
+- `MainApp.tsx`
+- `index.css`
+- `components/OrbitLogo.tsx`
+
+How it was tested:
+
+- Local verification of route transitions.
+- Build test successful.
+
+Test result:
+
+- PASS
+
+Known limitations or follow-up tasks:
+
+- None
+
+------------------------------------------------------------

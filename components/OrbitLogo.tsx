@@ -10,17 +10,17 @@ const OrbitLogo: React.FC<{ size?: 'small' | 'large' }> = ({ size = 'large' }) =
       {/* Animated Background Rings */}
       <motion.div 
         animate={{ rotate: 360 }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         className="orbit-ring ring-1"
       />
       <motion.div 
         animate={{ rotate: -360 }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
         className="orbit-ring ring-2"
       />
       <motion.div 
         animate={{ rotate: 360 }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
         className="orbit-ring ring-3"
       />
 

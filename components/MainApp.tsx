@@ -14,21 +14,19 @@ const MainApp: React.FC = () => {
   const { theme } = useSettings();
 
   return (
-    <div className={cn("App", `theme-${theme}`)}>
-      <LiveAPIProvider apiKey={API_KEY}>
-        <AudioVisualizer />
-        <ErrorScreen />
-        <Header />
-        <Sidebar />
-        <div className="streaming-console">
-          <main>
-            <div className="main-app-area">
-              <StreamingConsole />
-            </div>
-          </main>
-        </div>
-      </LiveAPIProvider>
-    </div>
+    <LiveAPIProvider apiKey={API_KEY}>
+      <AudioVisualizer />
+      <ErrorScreen />
+      <Header />
+      <Sidebar />
+      <div className="streaming-console">
+        <main>
+          <div className="main-app-area">
+            <StreamingConsole />
+          </div>
+        </main>
+      </div>
+    </LiveAPIProvider>
   );
 };
 
